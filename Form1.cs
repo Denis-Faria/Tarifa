@@ -510,7 +510,7 @@ namespace tarifa
                                         }
                                         else
                                         {
-                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString() + "')", mConn);
+                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString().Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "')", mConn);
                                             comm.ExecuteNonQuery();
                                             string msg = ("Tarifa não debitada por falta de saldo");
                                             writeLog.WriteLine("Conta:" + contaTarifa.ToString().PadLeft(10, ' ') + " | Tarifa: " + valorTarifa.ToString("N2").PadLeft(10, ' ') + " | " + msg.ToString().PadLeft(40, ' ') + "|");
@@ -765,7 +765,7 @@ namespace tarifa
                                         }
                                         else
                                         {
-                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString() + "')", mConn);
+                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString().Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "')", mConn);
                                             comm.ExecuteNonQuery();
                                             string msg = ("Tarifa não debitada por falta de saldo");
                                             writeLog.WriteLine("Conta:" + contaTarifa.ToString().PadLeft(10, ' ') + " | Tarifa: " + valorTarifa.ToString("N2").PadLeft(10, ' ') + " | " + msg.ToString().PadLeft(40, ' ') + "|");
@@ -810,7 +810,7 @@ namespace tarifa
 
                                         else
                                         {
-                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString() + "')", mConn);
+                                            MySqlCommand comm = new MySqlCommand("INSERT INTO logtarifa (conta,valor,descricao) values('" + contaTarifa + "','" + valorTarifa.ToString().Replace(",", ".") + "','" + descTarifa.ToString().Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "')", mConn);
                                             comm.ExecuteNonQuery();
                                             string msg = ("Tarifa não debitada por falta de saldo");
                                             writeLog.WriteLine("Conta:" + contaTarifa.ToString().PadLeft(10, ' ') + " | Tarifa: " + valorTarifa.ToString("N2").PadLeft(10, ' ') + " | " + msg.ToString().PadLeft(40, ' ') + "|");
