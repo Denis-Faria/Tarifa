@@ -299,7 +299,7 @@ namespace tarifa
                                             saldoLimite = Math.Round(saldoLimite - valorTarifa, 2);
                                             saldoRestante = Math.Round(saldoRestante - valorTarifa);
                                             writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
 
                                             qtdTarifa = qtdTarifa + 1;
                                             valorTotalTarifa = Math.Round(valorTotalTarifa + valorTarifa, 2);
@@ -345,7 +345,7 @@ namespace tarifa
                                                     comm.ExecuteNonQuery();
                                                 }
                                                 writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
 
                                                 qtdTarifa = qtdTarifa + 1;
                                                 valorTotalTarifa = Math.Round(valorTotalTarifa + valorTarifa, 2);
@@ -396,7 +396,7 @@ namespace tarifa
                                             saldoLimite = Math.Round(saldoLimite - valorTarifa, 2);
 
                                             writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
 
                                             qtdTarifa = qtdTarifa + 1;
                                             valorTotalTarifa = Math.Round(valorTotalTarifa + valorTarifa, 2);
@@ -432,7 +432,7 @@ namespace tarifa
                                                         comm.ExecuteNonQuery();
                                                     }
                                                     writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
                                                     saldoRestante = Math.Round(saldoRestante - valorTarifa);
                                                     saldoLimite = 0;
 
@@ -449,7 +449,7 @@ namespace tarifa
                                                         comm.ExecuteNonQuery();
                                                     }
                                                     writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
                                                     saldoRestante = Math.Round(saldoRestante - valorTarifa);
 
                                                     qtdTarifa = qtdTarifa + 1;
@@ -471,7 +471,7 @@ namespace tarifa
                                                         comm1.ExecuteNonQuery();
                                                     }
                                                     writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
                                                     saldoRestante = Math.Round(saldoRestante - valorTarifa);
                                                     saldoLimite = 0;
 
@@ -490,7 +490,7 @@ namespace tarifa
                                                     }
 
                                                     writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                            "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
                                                     saldoRestante = Math.Round(saldoRestante - valorTarifa);
 
                                                     qtdTarifa = qtdTarifa + 1;
@@ -749,7 +749,7 @@ namespace tarifa
                                             saldoLimite = Math.Round(saldoLimite - valorTarifa, 2);
                                             saldoRestante = Math.Round(saldoRestante - valorTarifa);
                                             writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E") + "                  ");
+                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "O").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
 
                                             qtdTarifa = qtdTarifa + 1;
                                             valorTotalTarifa = Math.Round(valorTotalTarifa + valorTarifa, 2);
@@ -791,7 +791,7 @@ namespace tarifa
                                             saldoLimite = Math.Round(saldoLimite - valorTarifa, 2);
 
                                             writePrincipal.WriteLine("1D" + contaTarifa.Replace("-", "").Replace(".", "").PadLeft(10, '0') + "                                                                  000                              " + valorTarifa.ToString("N2").Replace(".", "").Replace(",", "").PadLeft(17, '0') +
-                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "Ó").Replace("Ê", "E") + "                  ");
+                                                                        "          000N" + descTarifa.PadLeft(40, ' ').Replace("Ç", "C").Replace("Á", "A").Replace("É", "E").Replace("Ã", "A").Replace("Õ", "O").Replace("Í", "I").Replace("Ó", "Ó").Replace("Ê", "E").Replace("Ô", "O") + "                  ");
 
                                             qtdTarifa = qtdTarifa + 1;
                                             valorTotalTarifa = Math.Round(valorTotalTarifa + valorTarifa, 2);
