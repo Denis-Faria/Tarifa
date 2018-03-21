@@ -42,6 +42,7 @@ namespace tarifa
         int cabecalhoInativa = 0;
         int contaBloqueada = 0;
         string caminhoLog;
+        string nomeArquivo;
 
         public Form1()
         {
@@ -56,6 +57,7 @@ namespace tarifa
             {
                 textBox1.Text = openFileDialog1.FileName;
                 caminhoPlanilhaSaldo = textBox1.Text;
+                nomeArquivo = Path.GetFileName(caminhoPlanilhaSaldo);
             }
         }
 
@@ -72,6 +74,7 @@ namespace tarifa
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 if (Directory.Exists("C:/Tarifa/"))
@@ -135,7 +138,6 @@ namespace tarifa
                 //Conexão com banco
                 mDataSet = new DataSet();
                 mConn = new MySqlConnection("Server=10.11.17.30;Database=4030;Uid=root;Pwd=chinchila@acida12244819;");
-                //mConn = new MySqlConnection("Server=192.168.0.107;Database=tarifa;Uid=Denis;Pwd=Dtf@4030;");
                 mConn.Open();
 
                 if (caminhoPlanilhaSaldo == null || caminhoPlanilhaTarifa == null)
@@ -143,6 +145,29 @@ namespace tarifa
 
                 if (existeDiretorio == false)
                     System.IO.Directory.CreateDirectory("c:/Tarifa");
+
+                MySqlCommand consultaArquivo = new MySqlCommand("SELECT * FROM arquivotarifa tarifa",mConn);
+                MySqlDataAdapter conArquivo = new MySqlDataAdapter(consultaArquivo);
+                DataTable tabelaArquivo = new DataTable();
+                conArquivo.Fill(tabelaArquivo);
+
+
+
+                if (tabelaArquivo.Rows.Count==0)
+                {
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO arquivotarifa (arquivo) values('" +nomeArquivo+ "')", mConn);
+                    comm.ExecuteNonQuery();
+                }else
+                {
+                    if (tabelaArquivo.Rows[0][0].ToString() == nomeArquivo)
+                    {
+                        MessageBox.Show("Deseja excluir este registro?", "Excluir!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    }
+
+                }
+
+
 
 
                 StreamWriter writePrincipal = new StreamWriter(@"C:\Tarifa\Tarifas-" + DateTime.Now.Date.ToString("yyyyMMdd") + ".txt");
@@ -543,6 +568,8 @@ namespace tarifa
                                         string Line = "|Conta: " + contaTarifa.PadLeft(10, ' ') + "|";
                                         inativo.WriteLine(Line);
                                         string Line2 = "------------------- ";
+                                        
+
                                         inativo.WriteLine(Line2);
                                         inativo.Close();
                                     }
@@ -560,7 +587,7 @@ namespace tarifa
 
                     }
 
-
+                    
                     //Cria o arquivo de Saldo Bloqueado - INICIO
 
                     MySqlCommand conIDGerente = new MySqlCommand("select id_gerente from saldobloqueado", mConn);
@@ -841,8 +868,10 @@ namespace tarifa
                                         inat.Close();
                                         StreamWriter inativo = new StreamWriter("C:/Tarifa/inativa/#" + idGerente + " - CONTAS INATIVAS.txt", true, Encoding.ASCII);
                                         string Line = "|Conta: " + contaTarifa.PadLeft(10, ' ') + "|";
+                                        
                                         inativo.WriteLine(Line);
                                         string Line2 = "------------------- ";
+                                        
                                         inativo.WriteLine(Line2);
                                         inativo.Close();
                                     }
@@ -934,6 +963,10 @@ namespace tarifa
                 }
 
                 writePrincipal.WriteLine("9" + qtdTarifa.ToString().PadLeft(5, '0') + valorTotalTarifa.ToString("N2").Replace(",", "").Replace(".", "").PadLeft(17, '0') + "0000000000000000000000                                                                                                                                                           ");
+
+                MySqlCommand insereValorTotal = new MySqlCommand("INSERT INTO tarifavalores (valor,data,hora) values('" + valorTotalTarifa.ToString().Replace(",", ".") + "','" + DateTime.Now.ToString("yyyyMMdd") + "','" + DateTime.Now.ToShortTimeString() + "')", mConn);
+                insereValorTotal.ExecuteNonQuery();
+
 
                 writeLog.Dispose();
                 writeLog.Close();
@@ -1038,7 +1071,8 @@ namespace tarifa
                                 conNomeGerente.Fill(tabelaNomeGerente);
                                 string nomeGerente = tabelaNomeGerente.Rows[0][0].ToString();
 
-                                MySqlCommand consultaEmail = new MySqlCommand("select email from usuarios where nome LIKE '%" + nomeGerente + "%'", mConn);
+                                //MySqlCommand consultaEmail = new MySqlCommand("select email from usuarios where nome LIKE '%" + nomeGerente + "%'", mConn);
+                                MySqlCommand consultaEmail = new MySqlCommand("select email from usuarios where (soundex(nome)like concat('%',soundex('"+nomeGerente+"'),'%' ))",mConn);
                                 MySqlDataAdapter conEmail = new MySqlDataAdapter(consultaEmail);
                                 DataTable tabelaEmail = new DataTable();
                                 conEmail.Fill(tabelaEmail);
@@ -1119,9 +1153,9 @@ namespace tarifa
                                 mensagemEmail.Subject = assunto;
                                 mensagemEmail.Body = enviaMensagem;
 
-                                mensagemEmail.To.Add(new MailAddress(email));
-                                //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));
-                                smtp.Send(message: mensagemEmail);
+                                //mensagemEmail.To.Add(new MailAddress(email));
+                                //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));--
+                                //smtp.Send(message: mensagemEmail);
                                 
                             }
                             
@@ -1219,9 +1253,9 @@ namespace tarifa
                                 mensagemEmail.Subject = assunto;
                                 mensagemEmail.Body = enviaMensagem;
 
-                                mensagemEmail.To.Add(new MailAddress(email));
-                                //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));
-                                smtp.Send(message: mensagemEmail);
+                               // mensagemEmail.To.Add(new MailAddress(email));
+                                //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));--
+                                //smtp.Send(message: mensagemEmail);
 
 
                             }
@@ -1303,9 +1337,9 @@ namespace tarifa
                             mensagemEmail.Subject = assunto;
                             mensagemEmail.Body = enviaMensagem;
 
-                            mensagemEmail.To.Add(new MailAddress(email));
-                            //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));
-                            smtp.Send(message: mensagemEmail);
+                           // mensagemEmail.To.Add(new MailAddress(email));
+                            //mensagemEmail.To.Add(new MailAddress("denis.tavares@divicred.com.br"));--
+                           // smtp.Send(message: mensagemEmail);
 
                         }
                     }

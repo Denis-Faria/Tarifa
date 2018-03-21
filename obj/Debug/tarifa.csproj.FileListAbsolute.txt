@@ -57,3 +57,4 @@ C:\Users\denisj4030_00\source\repos\DenisTarifa\DenisTarifa\bin\Debug\tarifa.app
 C:\Users\denisj4030_00\source\repos\DenisTarifa\DenisTarifa\obj\Debug\tarifa.exe.manifest
 C:\Users\denisj4030_00\source\repos\DenisTarifa\DenisTarifa\obj\Debug\tarifa.application
 C:\Users\denisj4030_00\source\repos\DenisTarifa\DenisTarifa\bin\Debug\MetroFramework.Design.dll
+C:\Users\denisj4030_00\source\repos\DenisTarifa\DenisTarifa\obj\Debug\tarifa.csproj.CopyComplete
